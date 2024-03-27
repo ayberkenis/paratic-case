@@ -1,0 +1,16 @@
+.exchange-rate-preview {
+    @apply flex justify-center items-center flex-col
+}
+
+
+
+.sponsored-text {
+
+    font-family: var(--font-open-sans);
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 13.62px;
+    letter-spacing: 0.015em;
+    text-align: left;
+    color: #bfc3c8;
+}

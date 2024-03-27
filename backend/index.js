@@ -1,13 +1,15 @@
+
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 8000;
+app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-    }
-);
+/*const sqlFile = require('fs').readFileSync('./_initial.sql').toString();*/
+
+const authRoutes = require('./api/auth.js');
+app.use('/api/auth',  authRoutes)
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+    console.log(`Paratic Piyasalar Backend listening at http://localhost:${port}`);
     }
 );

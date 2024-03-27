@@ -4,13 +4,13 @@
 
 
 
-html, body {
-    margin : 0;
-    padding : 0;
+html,
+body {
+    margin: 0;
+    padding: 0;
     background-color: #1E222D;
 }
 
 * {
-    box-sizing : border-box;
+    box-sizing: border-box;
 }
-

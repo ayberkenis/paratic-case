@@ -1,0 +1,46 @@
+.button {
+    @apply rounded-[18px] w-[195px] h-[65px] flex items-center justify-center flex-col cursor-pointer select-none hover:shadow-lg transition-all duration-300 ease-in-out;
+}
+
+.button.buy-button {
+    @apply bg-[#2EBD85] text-white hover:bg-[#1c9c6b] hover:text-white;
+}
+
+.button.sell-button {
+    @apply bg-[#E84257] text-white hover:bg-[#c7182e] hover:text-white;
+}
+
+.button .button-title {
+
+    font-family: var(--font-open-sans);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 21.79px;
+    letter-spacing: 0.005em;
+    text-align: center;
+    @apply uppercase;
+
+}
+
+.button .button-subtitle {
+
+    font-family: var(--font-inter);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 15.73px;
+    letter-spacing: 0.004em;
+    text-align: center;
+    @apply lowercase
+}
+
+.interval-button {
+    font-family: var(--font-inter);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16.34px;
+    @apply w-[38px] h-[24px] rounded-[4px] bg-[#2A2E39] flex flex-col items-center justify-center text-[#e5e5e5] hover:bg-[#E5E5E5] hover:text-[#2A2E39] cursor-pointer select-none transition-all duration-300 ease-in-out;
+}
+
+.interval-button.active {
+    @apply bg-[#E5E5E5]
+}
