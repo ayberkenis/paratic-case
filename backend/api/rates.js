@@ -66,4 +66,21 @@ router.get('/flag/:code', (req, res) => {
 )
 
 
+router.get('/bank/:bank', (req, res) => {
+    connection.query(
+        'SELECT * FROM banks WHERE Code = ? AND Bank = ?',
+        [(req.params.code).toUpperCase(), req.params.bank],
+        (error, results) => {
+            if (error) {
+                console.log(error);
+                res.status(500).send('An error occurred');
+            } else {
+                res.json(results);
+            }
+        }
+    );
+}
+)
+
+
 module.exports = router;

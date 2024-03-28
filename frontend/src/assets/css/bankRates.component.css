@@ -1,0 +1,13 @@
+.bank-rates-container {}
+
+.bank-rates {
+    @apply w-full max-w-[967px] flex flex-col gap-y-4;
+}
+
+.bank-rates-table {
+    @apply w-full flex flex-col gap-y-2;
+}
+
+.bank-rates-table .table-head {
+    @apply w-full flex flex-row justify-between items-center gap-x-4;
+}

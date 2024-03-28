@@ -1,0 +1,32 @@
+.live-title {
+
+    font-family: var(--font-open-sans);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 19.07px;
+    letter-spacing: 0.0025em;
+    text-align: center;
+    color: #e5e5e5;
+}
+
+.banks .bank-name,
+.table-head-title {
+
+    font-family: var(--font-open-sans);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16.34px;
+    letter-spacing: 0.004em;
+    text-align: start;
+    color: #bfc3c8;
+}
+
+.live-rate-table .rates .rate {
+    font-family: var(--font-inter);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 15.73px;
+    letter-spacing: 0.004em;
+    text-align: center;
+    color: #e5e5e5;
+}
