@@ -3,11 +3,11 @@
 }
 
 .banks {
-    @apply w-full flex flex-col gap-y-2 even:bg-[#bfc38];
+    @apply w-full flex flex-col gap-y-1 even:bg-[#bfc38];
 }
 
 .banks .bank {
-    @apply lg:even:bg-[#BFC3C8] lg:even:bg-opacity-15 odd:bg-transparent even:bg-transparent w-full;
+    @apply hover:bg-[#fbb041] hover:odd:bg-[#fbb041] hover:odd:bg-opacity-25 hover:bg-opacity-25 lg:odd:bg-[#BFC3C8] lg:odd:bg-opacity-15 even:bg-transparent w-full;
 }
 
 .bank-rates-title {
