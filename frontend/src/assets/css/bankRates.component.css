@@ -1,13 +1,47 @@
-.bank-rates-container {}
-
-.bank-rates {
-    @apply w-full max-w-[967px] flex flex-col gap-y-4;
+.bank-rates-container {
+    @apply w-full py-4
 }
+
+.banks {
+    @apply w-full flex flex-col gap-y-2 even:bg-[#bfc38];
+}
+
+.banks .bank {
+    @apply even:bg-[#BFC3C8] even:bg-opacity-15 odd:bg-transparent w-full hover:bg-[#BFC3C8] hover:bg-opacity-25;
+}
+
+.bank-rates-title {
+
+    font-family: var(--font-open-sans);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 19.07px;
+    letter-spacing: 0.0025em;
+    text-align: left;
+    color: #e5e5e5;
+
+}
+
 
 .bank-rates-table {
     @apply w-full flex flex-col gap-y-2;
 }
 
 .bank-rates-table .table-head {
-    @apply w-full flex flex-row justify-between items-center gap-x-4;
+    @apply w-full flex flex-row justify-between items-center;
+}
+
+.bank-info {
+    @apply bg-[#1E222D] w-1/3;
+}
+
+.bank-rates .rate {
+
+    font-family: var(--font-inter);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 15.73px;
+    letter-spacing: 0.004em;
+    color: #e5e5e5;
+    @apply px-4 text-center flex items-center justify-center;
 }

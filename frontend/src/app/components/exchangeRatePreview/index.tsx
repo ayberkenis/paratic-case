@@ -4,7 +4,7 @@ import { BuyButton, IntervalActions, IntervalButton, SellButton } from "./button
 import '@/assets/css/erp.component.css';
 import helpTooltip from '@/assets/img/helpTooltip.svg';
 import ProgressBar from "./progressBar";
-import type {Rate} from "@/types/rate"; 
+import type { Rate } from "@/types/rate";
 import ChangeInterval from "./changeInterval";
 import DailyChange from "./dailyChange";
 
@@ -13,7 +13,7 @@ interface RateData {
     data: Rate;
 }
 
-export default function ExchangeRatePreview({data}: RateData) {
+export default function ExchangeRatePreview({ data }: RateData) {
 
     return (
         <div className="exchange-rate-preview">
@@ -47,8 +47,8 @@ export default function ExchangeRatePreview({data}: RateData) {
                 </span>
             </div>
             <div className="buy-sell-actions flex flex-col lg:flex-row my-4 lg:my-0 gap-4 ">
-                <BuyButton rate={data.Bid} href="https://partners.gcmyatirim.com.tr/Tracking/click/?affid=160958&lpId=20852&adTheme=52&affsub1=ppweb&affsub2=dolar&affsub3=5&affsub4=web&affsub5=-1&campaign=7650&campaignName=Default%20Campaign"/>
-                <SellButton  rate={data.Ask} href="https://partners.gcmyatirim.com.tr/Tracking/click/?affid=160958&lpId=20852&adTheme=52&affsub1=ppweb&affsub2=dolar&affsub3=5&affsub4=web&affsub5=-1&campaign=7650&campaignName=Default%20Campaign"/>
+                <BuyButton rate={data.Bid} href="https://partners.gcmyatirim.com.tr/Tracking/click/?affid=160958&lpId=20852&adTheme=52&affsub1=ppweb&affsub2=dolar&affsub3=5&affsub4=web&affsub5=-1&campaign=7650&campaignName=Default%20Campaign" />
+                <SellButton rate={data.Ask} href="https://partners.gcmyatirim.com.tr/Tracking/click/?affid=160958&lpId=20852&adTheme=52&affsub1=ppweb&affsub2=dolar&affsub3=5&affsub4=web&affsub5=-1&campaign=7650&campaignName=Default%20Campaign" />
             </div>
             <span className="sponsored-text">
                 Sponsorlu

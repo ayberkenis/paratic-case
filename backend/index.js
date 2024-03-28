@@ -9,8 +9,10 @@ const fs = require('fs');
 
 const authRoutes = require('./api/auth.js');
 const ratesRoutes = require('./api/rates.js');
+const assetsRoutes = require('./api/assets.js');
 app.use('/api/auth',  authRoutes)
 app.use('/api/rates', ratesRoutes)
+app.use('/api/assets', assetsRoutes)
 
 app.get('/', (req, res) => {
 

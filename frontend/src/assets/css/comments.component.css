@@ -1,0 +1,47 @@
+.comments-container {
+    @apply max-w-[440px] w-full;
+}
+
+.comments {
+    @apply px-4
+}
+
+.comments-header {
+    @apply flex flex-row items-center justify-between py-4;
+}
+
+.comments-header-title {
+    font-family: var(--font-open-sans);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 19.07px;
+    letter-spacing: 0.0025em;
+    text-align: left;
+    color: #e5e5e5;
+}
+
+.action-button {
+    @apply w-[190px] h-[45px] rounded-[6px] flex items-center justify-center cursor-pointer select-none hover:shadow-lg transition-all duration-300 ease-in-out;
+
+    font-family: var(--font-open-sans);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16.34px;
+    letter-spacing: 0.004em;
+    text-align: center;
+
+}
+
+.action-button.primary-button {
+    color: #1E222D;
+    @apply w-full bg-[#fbb041] hover:bg-[#1c1f26] hover:text-white;
+}
+
+.action-button.secondary-button {
+    color: #fbb041;
+    @apply w-full bg-[#2A2E39] text-[#fbb041] hover:bg-[#d1d1d1] hover:text-[#2A2E39];
+}
+
+.action-button.secondary-button.active {
+    @apply bg-[#fbb041] text-[#2A2E39];
+}

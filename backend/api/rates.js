@@ -62,25 +62,26 @@ router.get('/flag/:code', (req, res) => {
             res.send(flag);
         }
     );
-}
-)
+})
 
 
-router.get('/bank/:bank', (req, res) => {
+router.get('/banks/all', (req, res) => {
+
     connection.query(
-        'SELECT * FROM banks WHERE Code = ? AND Bank = ?',
-        [(req.params.code).toUpperCase(), req.params.bank],
+        'SELECT b.*, br.exchange_code, br.buy_rate, br.sell_rate, br.spread_rate, br.updated_at FROM banks b LEFT JOIN bank_rates br ON b.id = br.bank_id ORDER BY b.name ASC',
         (error, results) => {
             if (error) {
                 console.log(error);
                 res.status(500).send('An error occurred');
             } else {
+                // Group the results by bank to include all rates for each bank
                 res.json(results);
             }
         }
     );
-}
-)
+});
+
+
 
 
 module.exports = router;

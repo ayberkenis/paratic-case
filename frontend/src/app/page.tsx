@@ -3,6 +3,7 @@ import type { Rate } from "@/types/rate";
 import ExchangeRatePreview from "./components/exchangeRatePreview";
 import LiveExchangeRate from "./components/liveExchangeRate";
 import BankRates from "./components/bankRates";
+import Comments from "./components/comments";
 
 
 async function fetchHomePageData(): Promise<Rate[]> {
@@ -35,7 +36,11 @@ export default async function Home() {
         <div className="flex flex-col px-4 bank-rates-container">
           <BankRates />
         </div>
+        <div className="flex flex-col gap-4 comments-container">
+          <Comments />
+        </div>
       </div>
+
     </main>
   );
 }

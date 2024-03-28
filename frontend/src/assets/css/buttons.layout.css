@@ -10,6 +10,7 @@
     @apply bg-[#E84257] text-white hover:bg-[#c7182e] hover:text-white;
 }
 
+
 .button .button-title {
 
     font-family: var(--font-open-sans);
