@@ -1,8 +1,49 @@
 .exchange-rate-preview {
-    @apply flex justify-center items-center flex-col
+
+    @apply flex justify-center items-center flex-col text-[#e5e5e5] gap-y-2 w-[440px] py-8
 }
 
+.exchange-rate-info .container {
+    @apply flex justify-start items-center flex-row gap-x-4 w-full
+}
 
+.exchange-rate-info {
+    @apply flex justify-between items-center flex-row gap-x-4 w-full px-4
+}
+
+.rate-name-iso {
+    @apply flex flex-col
+}
+
+.rate-name-iso .rate-name {
+
+    font-family: var(--font-open-sans);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27.24px;
+    letter-spacing: 0.0015em;
+    text-align: left;
+
+}
+
+.rate-name-iso .rate-iso {
+
+    font-family: var(--font-open-sans);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.08px;
+    letter-spacing: 0.015em;
+    text-align: left;
+    color: #bfc3c8;
+}
+
+.tooltip img {
+    @apply hover:scale-110 cursor-pointer hover:fill-[#fbb041]
+}
+
+.tooltip img:hover {
+    filter: invert(71%) sepia(86%) saturate(810%) hue-rotate(329deg) brightness(108%) contrast(97%)
+}
 
 .sponsored-text {
 
@@ -13,4 +54,154 @@
     letter-spacing: 0.015em;
     text-align: left;
     color: #bfc3c8;
+}
+
+.exchange-rate-live .rate {
+
+    font-family: var(--font-inter);
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 43.57px;
+    letter-spacing: 0.0025em;
+}
+
+.exchange-rate-live {
+    @apply flex flex-row justify-between items-center w-full px-4
+}
+
+.exchange-rate-live .change {
+    @apply rounded-[8px] px-2 py-1
+}
+
+.exchange-rate-live .change.down {
+    @apply bg-[#E84257] bg-opacity-25
+}
+
+.exchange-rate-live .change.up {
+    @apply bg-[#2DCE89] bg-opacity-25
+}
+
+/* PROGRESS BAR */
+
+.progress-bar {
+    @apply w-full h-2 bg-[#2A2E39] rounded-[8px] relative
+}
+
+.progress-bar .progress-bar-inner {
+    @apply h-full bg-[#2EBD85] rounded-[8px] absolute
+}
+
+.lowest, .highest {
+    @apply flex justify-start items-center flex-col px-4 pb-2
+}
+
+.lowest .lowest-text, .highest .highest-text {
+
+    font-family: var(--font-open-sans);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16.34px;
+    letter-spacing: 0.004em;
+    text-align: left;
+    color: #BFC3C8;
+
+}
+
+.lowest .lowest-price {
+
+    font-family: var(--font-inter);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 15.73px;
+    letter-spacing: 0.004em;
+    text-align: left;
+    color: #E84257;
+
+}
+
+.highest .highest-price {
+
+    font-family: var(--font-inter);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 15.73px;
+    letter-spacing: 0.004em;
+    text-align: left;
+    color: #2DCE89;
+}
+
+.down-chevron {
+
+    font-family: var(--font-inter);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 15.73px;
+    letter-spacing: 0.004em;
+
+    color: #E84257;
+    text-align: center;
+    @apply mt-2 flex justify-center flex-col items-center
+}
+
+.down-chevron span {
+    @apply mt-2
+}
+
+
+.changes-table {
+    @apply w-full flex flex-col gap-y-2
+}
+
+.change-row {
+    @apply w-full flex flex-row justify-between items-center gap-x-4
+}
+
+.change-text {
+
+    font-family: var(--font-open-sans);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16.34px;
+    letter-spacing: 0.004em;
+    text-align: center;
+    color: #BFC3C8;
+}
+
+.change-interval {
+    @apply gap-y-2
+}
+
+.change-interval-text {
+    font-family: var(--font-open-sans);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16.34px;
+    letter-spacing: 0.004em;
+    text-align: center;
+    color: #BFC3C8;
+}
+
+.change-interval-value {
+    font-family: var(--font-inter);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 15.73px;
+    letter-spacing: 0.004em;
+    text-align: center;
+}
+
+.change-interval-value.up {
+    color: #2DCE89;
+}
+
+.change-interval-value.down {
+    color: #E84257;
+}
+
+.arrow-up {
+    @apply rotate-180 fill-[#2DCE89];
+}
+
+.arrow-down {
+    /**/
 }
