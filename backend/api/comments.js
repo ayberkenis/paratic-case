@@ -1,9 +1,24 @@
 const express = require('express');
 const router = express.Router();
 const connection = require('../db.js');
-const path = require('path');
+const jwt = require('jsonwebtoken');
+const secret = require('dotenv').config().parsed.JWT_SECRET;
 
-router.get('/featured/all', (req, res) => {
+function verifyToken(req, res, next) {
+    const token = req.headers['authorization'];
+    if (!token) {
+        return res.status(403).send('No token provided');
+    }
+    jwt.verify(token, secret, (err, decoded) => {
+        if (err) {
+            return res.status(401).json({error: 'Failed to authenticate token'});
+        }
+        req.user = decoded;
+        next();
+    });
+}
+
+router.get('/featured/all',  (req, res) => {
     /*
     This function returns all featured comments
     */
@@ -22,7 +37,7 @@ router.get('/featured/all', (req, res) => {
     );
 });
 
-router.get('/all', (req, res) => {
+router.get('/all',  (req, res) => {
     /* 
     This function returns all comments
     */
@@ -40,7 +55,7 @@ router.get('/all', (req, res) => {
     );
 });  
 
-router.post('/add', (req, res) => {
+router.post('/add', verifyToken, (req, res) => {
     /* 
     This function adds a new comment
     */

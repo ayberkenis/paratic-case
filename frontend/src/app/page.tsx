@@ -31,7 +31,7 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col px-2 py-4">
-      <div className="flex flex-row gap-4">
+      <div className="flex flex-col lg:flex-row gap-4">
         <div className="flex flex-col px-4">
           <ExchangeRatePreview data={data[0]} />
           <LiveExchangeRate />

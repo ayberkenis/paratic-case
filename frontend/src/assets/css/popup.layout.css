@@ -1,0 +1,32 @@
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /* backdrop + wrapper */
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    z-index: 1001;
+    /* content */
+}
+
+.popup-body {
+    @apply flex flex-col py-8 gap-8 items-center;
+}
+
+.popup-button {
+    @apply bg-[#E84257] text-white font-bold py-2 px-4 rounded hover:bg-[#af1529];
+}
