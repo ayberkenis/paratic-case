@@ -42,5 +42,5 @@
 }
 
 .interval-button.active {
-    @apply bg-[#E5E5E5]
+    @apply bg-[#E5E5E5] text-[#2A2E39];
 }

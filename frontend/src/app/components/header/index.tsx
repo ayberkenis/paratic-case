@@ -1,23 +1,34 @@
+'use client';
+
 import Logo from "./logo";
 import '@/assets/css/header.layout.css';
 import Search from "./search";
-import Navbar from "./nav";
+import {MobileNavbar, Navbar} from "./nav";
 import Authentication from "./auth";
+import { useState } from "react";
 
 export default function Header() {
+    const [showMobileMenu, setShowMobileMenu] = useState(false)
+
+
+
     return (
-        <div className="flex items-center justify-between header">
-            <div className="header-side w-1/3">
+        <>
+        <div className="flex items-center header w-full relative">
                 <Logo />
-                <Search />
-            </div>
-            <div className="header-center flex-1">
+                <div className="search-container  lg:ml-8 hidden lg:flex items-center justify-center order-2">
+                    <Search />
+                </div>
                 <Navbar />
-            </div>
-            <div className="header-side justify-self-end w-1/3">
-                <Authentication />
-            </div>
+                <span className="hidden lg:flex order-4">
+                    <Authentication />
+                </span>
+                <div className="block lg:hidden ml-6">
+                    <span onClick={() => setShowMobileMenu(true)} className="hamburger-menu-icon lg:hidden">☰</span>
+                </div>
 
         </div>
+        {showMobileMenu && <MobileNavbar closeMenu={setShowMobileMenu}/>}
+        </>
     )
 }

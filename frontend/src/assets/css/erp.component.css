@@ -1,6 +1,6 @@
 .exchange-rate-preview {
 
-    @apply flex justify-center items-center flex-col text-[#e5e5e5] gap-y-2 w-[440px] py-8
+    @apply flex justify-center items-center flex-col text-[#e5e5e5] gap-y-2 max-w-[440px] py-8
 }
 
 .exchange-rate-info .container {
@@ -79,6 +79,25 @@
 
 .exchange-rate-live .change.up {
     @apply bg-[#2DCE89] bg-opacity-25
+}
+
+.previous-rate-title, .previous-rate-value {
+
+    font-family: var(--font-open-sans);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 19.07px;
+    letter-spacing: 0.0025em;
+    text-align: left;
+
+}
+
+.previous-rate-title {
+    color: #bfc3c8;
+}
+
+.previous-rate-value {
+    color: #e5e5e5;
 }
 
 /* PROGRESS BAR */

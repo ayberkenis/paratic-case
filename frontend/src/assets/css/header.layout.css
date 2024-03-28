@@ -1,14 +1,12 @@
 .header {
-    @apply max-h-[44px] h-full w-full pt-8 flex justify-between items-center;
+    @apply max-h-[44px] h-full w-full mt-8 grid grid-rows-1 grid-cols-4 items-center justify-between;
+    grid-template-columns: auto 300px 1fr auto;
 }
 
-.header-side {
-    @apply flex items-center gap-[54px];
-}
 
 .paratic-logo {
-    width: 147.58px;
-    height: 32px;
+    min-width: 148px;
+    min-height: 32px;
     @apply hover:scale-110 items-center flex ml-[26px]
 }
 
@@ -16,8 +14,8 @@
     background: #131722;
     height: 32px;
     border-radius: 8px;
-    width: 231.21px;
     padding: 4px 7px;
+    @apply w-[80px] lg:w-[231.21px] flex items-center;
 }
 
 .search input {
@@ -73,4 +71,8 @@
     background: #2A2E39;
     color: #fbb041;
     @apply hover:bg-[#fbb01f] hover:text-[#2A2E39] cursor-pointer;
+}
+
+.hamburger-menu-icon {
+    @apply w-[24px] h-[24px] cursor-pointer bg-[#fbb041] flex items-center justify-center py-4 px-4 rounded-md;
 }

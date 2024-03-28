@@ -18,7 +18,7 @@ export default async function Home() {
   const data = await fetchHomePageData();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col px-2 py-4">
       <ExchangeRatePreview data={data[0]} />
     </main>
   );

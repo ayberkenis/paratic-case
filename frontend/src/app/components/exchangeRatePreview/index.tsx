@@ -1,5 +1,6 @@
+'use client';
 import Image from "next/image";
-import { BuyButton, IntervalButton, SellButton } from "./buttons";
+import { BuyButton, IntervalActions, IntervalButton, SellButton } from "./buttons";
 import '@/assets/css/erp.component.css';
 import helpTooltip from '@/assets/img/helpTooltip.svg';
 import ProgressBar from "./progressBar";
@@ -13,7 +14,7 @@ interface RateData {
 }
 
 export default function ExchangeRatePreview({data}: RateData) {
-    console.log(data)
+
     return (
         <div className="exchange-rate-preview">
             <div className="exchange-rate-info">
@@ -37,20 +38,23 @@ export default function ExchangeRatePreview({data}: RateData) {
                 </div>
                 <DailyChange percent={data.DailyChangePercent} />
             </div>
-            <div className="exchange-rate-previous">
+            <div className="exchange-rate-previous flex flex-row justify-start items-start text-start w-full px-4 gap-x-1 pb-2">
+                <span className="previous-rate-title">
+                    Önceki Kapanış:
+                </span>
+                <span className="previous-rate-value">
+                    {data.PreviousClose}
+                </span>
             </div>
-            <div className="buy-sell-actions flex flex-row gap-4">
-                <BuyButton rate={data.Bid} onClick={() => console.log('')}/>
-                <SellButton  rate={data.Ask} onClick={() => console.log('')}/>
+            <div className="buy-sell-actions flex flex-col lg:flex-row my-4 lg:my-0 gap-4 ">
+                <BuyButton rate={data.Bid} href="https://partners.gcmyatirim.com.tr/Tracking/click/?affid=160958&lpId=20852&adTheme=52&affsub1=ppweb&affsub2=dolar&affsub3=5&affsub4=web&affsub5=-1&campaign=7650&campaignName=Default%20Campaign"/>
+                <SellButton  rate={data.Ask} href="https://partners.gcmyatirim.com.tr/Tracking/click/?affid=160958&lpId=20852&adTheme=52&affsub1=ppweb&affsub2=dolar&affsub3=5&affsub4=web&affsub5=-1&campaign=7650&campaignName=Default%20Campaign"/>
             </div>
             <span className="sponsored-text">
                 Sponsorlu
             </span>
-            <div className="interval-actions flex flex-row gap-2">
-                <IntervalButton interval="24s" onClick={() => console.log('')}/>
-                <IntervalButton interval="1h" onClick={() => console.log('')}/>
-                <IntervalButton interval="1y" onClick={() => console.log('')}/>
-            </div>
+            {/* Interval Actions needs to be client component */}
+            <IntervalActions />
 
             <div className="exchange-rate-progress w-full px-4">
                 <ProgressBar lowest={data.Low} highest={data.High} current={data.Last} />
