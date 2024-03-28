@@ -45,3 +45,76 @@
 .action-button.secondary-button.active {
     @apply bg-[#fbb041] text-[#2A2E39];
 }
+
+.comments-body {
+    @apply mt-4 flex flex-col gap-4;
+}
+
+.comment {
+    @apply flex flex-col items-start justify-start py-4 bg-[#2A2E39] rounded-[6px] px-4 gap-4;
+}
+
+.comment-meta {
+    @apply flex flex-row items-center justify-start w-full;
+
+}
+
+.comment-avatar {
+    @apply w-[40px] h-[40px] rounded-full border flex items-center justify-center aspect-square;
+    border-color: #FBB041;
+}
+
+.comment-meta .comment-author {
+    font-family: var(--font-open-sans);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 19.07px;
+    letter-spacing: 0.0025em;
+    text-align: start;
+    color: #BFC3C8;
+    @apply justify-start justify-self-start w-full ml-4;
+}
+
+.comment-meta .comment-date {
+    font-family: var(--font-open-sans);
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 13.62px;
+    letter-spacing: 0.015em;
+    text-align: end;
+    color: #BFC3C8;
+    @apply justify-end justify-self-end w-full;
+}
+
+.comment-content .comment-body {
+    font-family: var(--font-open-sans);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16.34px;
+    letter-spacing: 0.004em;
+    text-align: left;
+    color: #e5e5e5;
+}
+
+.add-comment {
+    @apply w-full flex flex-row items-center justify-center gap-4 rounded-[6px] bg-[#2A2E39] mt-4;
+}
+
+.add-comment-input-wrapper {
+    @apply w-full flex items-center;
+}
+
+.add-comment-input {
+    @apply w-full h-[40px] px-4 focus:outline-none bg-transparent border-none;
+    font-family: var(--font-open-sans);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16.34px;
+    letter-spacing: 0.004em;
+    text-align: left;
+    color: #e5e5e5;
+}
+
+.add-attachment {
+    @apply pr-4 cursor-pointer;
+}

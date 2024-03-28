@@ -7,6 +7,7 @@ import ProgressBar from "./progressBar";
 import type { Rate } from "@/types/rate";
 import ChangeInterval from "./changeInterval";
 import DailyChange from "./dailyChange";
+import Tooltip from "./tooltip";
 
 
 interface RateData {
@@ -27,9 +28,7 @@ export default function ExchangeRatePreview({ data }: RateData) {
                         <span className="rate-iso">{data.Code}</span>
                     </div>
                 </div>
-                <div className="tooltip self-start">
-                    <Image src={helpTooltip} alt="info" width={24} height={24} />
-                </div>
+                <Tooltip text="Döviz kurları, uluslararası para birimlerinin birbirlerine olan oranlarını gösteren bir sistemdir." position='right' />
             </div>
             <div className="exchange-rate-live">
                 <div className="rate">

@@ -1,29 +1,29 @@
+
 import '@/assets/css/comments.component.css';
 import Image from 'next/image';
 import helpTooltip from '@/assets/img/helpTooltip.svg';
+import attachmentIcon from '@/assets/img/attachmentIcon.svg';
+import { AllComments, FeaturedComments } from './commentsBody';
+import SegmentedComments from './segmentedComments';
+import AddComment from './addComment';
+import Tooltip from '../exchangeRatePreview/tooltip';
 
-export default function Comments() {
+
+
+
+
+
+export default async function Comments({ exchange_code }: { exchange_code: string }) {
+
     return (
         <div className="comments">
             <div className="comments-header">
                 <span className="comments-header-title">Yorumlar</span>
-                <span className="tooltip">
-                    <Image src={helpTooltip} alt="info" width={24} height={24} />
-                </span>
+                <Tooltip text="Yorumlarınızı paylaşarak diğer kullanıcılarla fikir alışverişi yapabilirsiniz." position='left' />
             </div>
-            <div className='comments-segment-buttons flex flex-row gap-[20px]'>
-                <span className='action-button secondary-button active'>Başlıca Yorumlar</span>
-                <span className='action-button secondary-button'>Tüm Yorumlar</span>
-            </div>
-            <div className="featured-comments">
+            <SegmentedComments exchange_code={exchange_code} />
 
-            </div>
-            <div className="all-comments">
-
-            </div>
-            <div className="comment-form">
-
-            </div>
+            <AddComment exchange_code={exchange_code} />
         </div>
     )
 }
