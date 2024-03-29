@@ -95,13 +95,7 @@
     @apply hover:text-[#fbb041]
 }
 
-.nav-mobile {
-    @apply flex-col gap-y-8 items-center text-center text-[#e5e5e5] fixed left-0 z-50 top-0 min-h-screen h-screen bg-[#2A2E39] w-screen overflow-hidden
-}
 
-.nav-mobile .footer>div {
-    @apply w-full flex justify-center items-center p-0 pt-12;
-}
 
 /* 
 Auth Dropdown
@@ -134,7 +128,7 @@ Auth Dropdown
 }
 
 .mobile {
-    @apply lg:hidden xl:hidden flex flex-col items-center justify-center w-full pt-10
+    @apply lg:hidden xl:hidden flex flex-col items-center justify-center w-full fixed z-[5000000] h-dvh overflow-y-hidden overflow-x-hidden bg-[#2A2E39] top-0 left-0
 }
 
 .mobile-menu {
@@ -143,4 +137,20 @@ Auth Dropdown
 
 .hamburger-menu-icon {
     @apply lg:hidden xl:hidden hover:bg-[#2a2e39] hover:text-[#fbb041]
+}
+
+.nav-mobile {
+    @apply flex-col gap-y-8 items-center text-center text-[#e5e5e5] relative left-0 z-50 top-0 min-h-screen h-dvh bg-[#2A2E39] w-screen overflow-hidden
+}
+
+.nav-mobile .footer {
+    @apply absolute bottom-20 mx-auto w-full
+}
+
+.nav-mobile .footer>div {
+    @apply w-full flex justify-center items-center pr-0;
+}
+
+.nav-mobile .footer>div>div {
+    @apply w-full flex justify-center items-center pr-0;
 }
