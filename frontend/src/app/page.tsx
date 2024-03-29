@@ -10,15 +10,11 @@ async function fetchHomePageData(exchange_code: string): Promise<Rate[]> {
   /* 
   This function fetches the home page data from the API. 
   Defaults to USD/TRY exchange. 
-
-
   */
   const response = await fetch(`http://localhost:8000/api/rates/${exchange_code}`);
-
   if (!response.ok) {
     throw new Error('Failed to fetch data');
   }
-
   return response.json();
 }
 
@@ -28,8 +24,6 @@ async function fetchHomePageData(exchange_code: string): Promise<Rate[]> {
 export default async function Home() {
   const DEFAULT_CODE = 'USDTRY';
   const data = await fetchHomePageData(DEFAULT_CODE);
-
-
 
 
   return (

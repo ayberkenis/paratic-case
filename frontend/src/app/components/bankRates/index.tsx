@@ -35,7 +35,6 @@ async function Bank({ name, image, buy_rate, sell_rate, spread_rate }: BankProps
 
 export default async function BankRates() {
     const banks = await (await fetch('http://localhost:8000/api/rates/banks/all')).json()
-    console.log(banks)
     return (
         <div className="bank-rates">
             <div className='bank-rates-title'>

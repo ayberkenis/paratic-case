@@ -1,19 +1,14 @@
-'use client';
-
 import Logo from "./logo";
 import '@/assets/css/header.layout.css';
 import Search from "./search";
-import { MobileNavbar, Navbar } from "./nav";
+import { Navbar } from "./nav";
 import Authentication from "./auth";
-import { useState } from "react";
+import MobileMenu from "./mobileMenu";
+import { cookies } from 'next/headers';
 
-export default function Header() {
-    const [showMobileMenu, setShowMobileMenu] = useState(false)
+export default async function Header() {
+    const user = cookies().get('user')?.value
 
-
-    if (showMobileMenu) {
-        return <MobileNavbar closeMenu={setShowMobileMenu} />
-    }
     return (
         <>
             <div className="flex items-center header w-full relative">
@@ -23,11 +18,9 @@ export default function Header() {
                 </div>
                 <Navbar />
                 <span className="hidden lg:flex order-4">
-                    <Authentication />
+                    <Authentication user={user} />
                 </span>
-                <div className="block lg:hidden ml-6">
-                    <span onClick={() => setShowMobileMenu(true)} className="hamburger-menu-icon lg:hidden">☰</span>
-                </div>
+                <MobileMenu />
 
             </div>
 
