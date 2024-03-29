@@ -2,7 +2,7 @@
 import LoginRegisterButtons from './user/authButtons';
 import Username from '@/app/components/header/user/profileButton';
 
-export default async function Authentication({ user }: { user?: string }) {
+export default function Authentication({ user }: { user?: string }) {
 
     const username = JSON.parse(user || '{}').username;
     return (

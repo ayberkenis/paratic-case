@@ -35,7 +35,7 @@
 
 .nav {
     gap: clamp(5px, 2.5vw, 50px);
-    @apply w-full flex items-center justify-center text-nowrap px-8;
+    @apply w-full lg:flex items-center justify-center text-nowrap px-8 hidden;
 }
 
 .navbar-item {
@@ -96,7 +96,7 @@
 }
 
 .nav-mobile {
-    @apply lg:hidden order-4 flex flex-col gap-y-8 items-center text-center text-[#e5e5e5] fixed left-0 z-50 top-0 min-h-screen h-screen bg-[#2A2E39] w-screen overflow-hidden
+    @apply flex-col gap-y-8 items-center text-center text-[#e5e5e5] fixed left-0 z-50 top-0 min-h-screen h-screen bg-[#2A2E39] w-screen overflow-hidden
 }
 
 .nav-mobile .footer>div {
@@ -123,4 +123,24 @@ Auth Dropdown
 
 .auth-wrapper {
     @apply w-full
+}
+
+.menus {
+    @apply w-full
+}
+
+.desktop-menu {
+    @apply hidden lg:flex xl:flex
+}
+
+.mobile {
+    @apply lg:hidden xl:hidden flex flex-col items-center justify-center w-full pt-10
+}
+
+.mobile-menu {
+    @apply lg:hidden xl:hidden w-full
+}
+
+.hamburger-menu-icon {
+    @apply lg:hidden xl:hidden hover:bg-[#2a2e39] hover:text-[#fbb041]
 }

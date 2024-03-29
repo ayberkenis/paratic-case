@@ -2,7 +2,7 @@
 
 const nextConfig = {
     images: {
-        domains: ['localhost'],
+        domains: ['localhost', 'api.ayberkenis.com.tr', '*.ayberkenis.com.tr', 'restcountries.com'],
     },
 };
 
