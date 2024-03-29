@@ -29,14 +29,14 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col px-2 py-4">
       <div className="flex-col grid grid-cols-2 lg:grid-rows-2 xl:flex xl:flex-row gap-4">
-        <div className="lg:order-1 flex flex-col px-4">
+        <div className="lg:order-1 flex flex-col px-4 col-span-2 lg:col-span-1 2xl:col-span-1">
           <ExchangeRatePreview data={data[0]} />
           <LiveExchangeRate />
         </div>
-        <div className="order-3 lg:order-2 xl:order-2 2xl:order-2 col-span-1 sm:col-span-2 flex flex-col px-4 bank-rates-container">
+        <div className="order-3 lg:order-2 xl:order-2 2xl:order-2 col-span-2 lg:col-span-2 flex flex-col px-4 bank-rates-container">
           <BankRates />
         </div>
-        <div className="order-2 lg:order-3 xl:order-3 2xl:order-3 flex flex-col gap-4 comments-container">
+        <div className="order-6 lg:order-3 xl:order-3 2xl:order-3 flex flex-col col-span-2 lg:col-span-1 mx-auto gap-4 comments-container">
           <Comments exchange_code={DEFAULT_CODE} />
         </div>
       </div>
