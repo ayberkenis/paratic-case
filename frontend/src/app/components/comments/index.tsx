@@ -1,15 +1,8 @@
 
 import '@/assets/css/comments.component.css';
-import Image from 'next/image';
-import helpTooltip from '@/assets/img/helpTooltip.svg';
-import attachmentIcon from '@/assets/img/attachmentIcon.svg';
-import { AllComments, FeaturedComments } from './commentsBody';
 import SegmentedComments from './segmentedComments';
 import AddComment from './addComment';
 import Tooltip from '../exchangeRatePreview/tooltip';
-
-
-
 
 
 

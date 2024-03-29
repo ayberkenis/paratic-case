@@ -2,38 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AllComments, Comment, FeaturedComments } from "./commentsBody";
-
-async function fetchAllComments(exchange_code: string) {
-    const url = new URL('http://localhost:8000/api/comments/all')
-    url.searchParams.append('exchange_code', exchange_code)
-
-    const response = await fetch(url.toString(), {
-        method: 'GET',
-    })
-
-    if (!response.ok) {
-        console.error('Error response:', await response.text());
-        throw new Error('Failed to fetch data');
-    }
-
-    return response.json();
-}
-
-async function fetchFeaturedComments(exchange_code: string) {
-    const url = new URL('http://localhost:8000/api/comments/featured/all')
-    url.searchParams.append('exchange_code', exchange_code)
-
-    const response = await fetch(url.toString(), {
-        method: 'GET',
-    })
-
-    if (!response.ok) {
-        console.error('Error response:', await response.text());
-        throw new Error('Failed to fetch data');
-    }
-
-    return response.json();
-}
+import { fetchAllComments, fetchFeaturedComments } from "@/app/actions/commentActions";
 
 
 export default function SegmentedComments({ exchange_code }: { exchange_code: string }) {

@@ -30,6 +30,10 @@ router.post('/login', (req, res) => {
 });
 
 router.post('/register', (req, res) => {
+    /* 
+        Registers a new user. The password is encrypted before storing it in the database.
+        If the email is already in use, the server will respond with a 409 status code.
+    */
     connection.query(
         'INSERT INTO users (username, email, password) VALUES (?, ?, ?)',
         [req.body.username, req.body.email, encrypt(req.body.password)],

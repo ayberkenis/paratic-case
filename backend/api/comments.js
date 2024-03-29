@@ -45,8 +45,9 @@ router.post('/add', verifyToken, (req, res) => {
     /* 
     This function adds a new comment
     */
+   console.log('adding comment')
     const author_id = req.user.id;
-
+    console.log(req.user)
     connection.query(
         'INSERT INTO comments (exchange_code, author_id, content, commented_at, featured) VALUES (?, ?, ?, NOW(), 0)',
         [req.body.exchange_code, author_id, req.body.content],
