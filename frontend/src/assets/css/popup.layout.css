@@ -24,9 +24,35 @@
 }
 
 .popup-body {
+    font-family: var(--font-inter);
+    font-size: 16px;
+    line-height: 1.5;
+    color: #1c1f26;
+
     @apply flex flex-col py-8 gap-8 items-center;
 }
 
 .popup-button {
-    @apply bg-[#E84257] text-white font-bold py-2 px-4 rounded hover:bg-[#af1529];
+    @apply bg-[#fbb041] text-white font-bold py-2 px-4 rounded hover:bg-[#e88c05];
+}
+
+.popup-body {
+    @apply flex flex-col gap-4 items-center;
+}
+
+.popup-button-wrapper {
+    @apply flex gap-4 mb-6;
+
+}
+
+.popup-input {
+    @apply w-full h-10 border border-[#1c1f26] border-opacity-15 px-2;
+}
+
+.popup-header {
+    @apply text-2xl font-bold w-full flex items-center justify-center my-4;
+}
+
+.popup-body span {
+    @apply text-sm cursor-pointer hover:text-black;
 }

@@ -68,6 +68,13 @@
     @apply hover:bg-white hover:text-[#2A2E39] cursor-pointer;
 }
 
+.auth-button.logged-in {
+    background: #2A2E39;
+    color: #fbb041;
+    @apply hover:bg-[#fbb01f] hover:text-[#2A2E39] cursor-pointer;
+
+}
+
 .auth-button.register {
     background: #2A2E39;
     color: #fbb041;
@@ -90,4 +97,30 @@
 
 .nav-mobile {
     @apply lg:hidden order-4 flex flex-col gap-y-8 items-center text-center text-[#e5e5e5] fixed left-0 z-50 top-0 min-h-screen h-screen bg-[#2A2E39] w-screen overflow-hidden
+}
+
+.nav-mobile .footer>div {
+    @apply w-full flex justify-center items-center p-0 pt-12;
+}
+
+/* 
+Auth Dropdown
+*/
+
+.auth-dropdown {
+    @apply absolute top-9 pt-2 left-0 z-50 hover:bg-red-500 bg-[#2A2E39] w-[88.55px] h-auto py-2 rounded-md shadow-md flex flex-col gap-y-2 items-center justify-center
+}
+
+.dropdown-item {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16.34px;
+    color: #e5e5e5;
+    cursor: pointer;
+    @apply hover:text-[#e5e5e5]
+}
+
+.auth-wrapper {
+    @apply w-full
 }

@@ -16,12 +16,13 @@ router.post('/login', (req, res) => {
                 res.status(401).send('Invalid email or password');
             } else {
                 const token = jwt.sign(
-                    { email: req.body.email },
+                    { email: req.body.email, username: results[0].username, id: results[0].id, avatar: results[0].avatar },
                     secret,
                     { expiresIn: '2w' }
                 );
                 res.cookie('jwt', token, { httpOnly: true, maxAge: 14 * 24 * 60 * 60 * 1000 }); // Setting the JWT token as a cookie
-                res.send({ token });
+                res.cookie('user', JSON.stringify({ email: req.body.email, username: results[0].username, id: results[0].id, avatar: results[0].avatar }), { maxAge: 14 * 24 * 60 * 60 * 1000 });
+                res.send({ token, user: { email: req.body.email, username: results[0].username, id: results[0].id, avatar: results[0].avatar } });
             }
         }
     );

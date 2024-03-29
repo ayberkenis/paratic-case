@@ -5,7 +5,8 @@ const jwt = require('jsonwebtoken');
 const secret = require('dotenv').config().parsed.JWT_SECRET;
 
 function verifyToken(req, res, next) {
-    const token = req.headers['authorization'];
+    const _token = req.headers['authorization'];
+    const token = _token && _token.split(' ')[1];
     if (!token) {
         return res.status(403).send('No token provided');
     }
@@ -59,16 +60,17 @@ router.post('/add', verifyToken, (req, res) => {
     /* 
     This function adds a new comment
     */
-   console.log(req.body)
+    const author_id = req.user.id;
+
     connection.query(
         'INSERT INTO comments (exchange_code, author_id, content, commented_at, featured) VALUES (?, ?, ?, NOW(), 0)',
-        [req.body.exchange_code, req.body.author_id, req.body.content],
+        [req.body.exchange_code, author_id, req.body.content],
         (error, results) => {
             if (error) {
                 console.log(error);
                 res.status(500).send('An error occurred');
             } else {
-                res.status(200).send('Comment added');
+                res.status(200).json({status:'Comment added'});
             }
         }
     );

@@ -6,7 +6,10 @@ const port = 8000;
 app.use(express.json());
 
 /*const sqlFile = require('fs').readFileSync('./_initial.sql').toString();*/
-app.use(cors())
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true
+}))
 const authRoutes = require('./api/auth.js');
 const ratesRoutes = require('./api/rates.js');
 const commentsRoutes = require('./api/comments.js');
