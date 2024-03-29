@@ -1,5 +1,5 @@
 .exchange-rate-preview {
-    @apply flex justify-center items-center flex-col text-[#e5e5e5] gap-y-2 min-w-[440px] w-full py-8
+    @apply flex justify-center items-center flex-col text-[#e5e5e5] gap-y-2 min-w-[240px] w-full py-8
 }
 
 .exchange-rate-info .container {
