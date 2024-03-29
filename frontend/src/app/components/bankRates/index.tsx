@@ -16,7 +16,7 @@ async function Bank({ name, image, buy_rate, sell_rate, spread_rate }: BankProps
     return (
         <div className='bank flex flex-row justify-between'>
             <div className='bank-info flex flex-row items-center gap-8 w-1/3'>
-                <Image src={`http://localhost:8000/api/assets/${image}`} alt='Banka' width={0} height={0} className='bank-logo' style={{
+                <Image src={`http://api.ayberkenis.com.tr/api/assets/${image}`} alt='Banka' width={0} height={0} className='bank-logo' style={{
                     width: 'auto',
                     height: '24px'
                 }} quality={100} />
@@ -34,7 +34,7 @@ async function Bank({ name, image, buy_rate, sell_rate, spread_rate }: BankProps
 }
 
 export default async function BankRates() {
-    const banks = await (await fetch('http://localhost:8000/api/rates/banks/all')).json()
+    const banks = await (await fetch('http://api.ayberkenis.com.tr/api/rates/banks/all')).json()
     return (
         <div className="bank-rates">
             <div className='bank-rates-title'>

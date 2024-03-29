@@ -7,7 +7,7 @@ import { cookies } from 'next/headers';
 export async function addComment(exchange_code: string, content: string) {
     const token = cookies().get('token')?.value
     try {
-        const response = await fetch('http://localhost:8000/api/comments/add', {
+        const response = await fetch('http://api.ayberkenis.com.tr/api/comments/add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ export async function addComment(exchange_code: string, content: string) {
 }
 
 export async function fetchAllComments(exchange_code: string) {
-    const url = new URL('http://localhost:8000/api/comments/all')
+    const url = new URL('http://api.ayberkenis.com.tr/api/comments/all')
     url.searchParams.append('exchange_code', exchange_code)
 
     const response = await fetch(url.toString(), {
@@ -45,7 +45,7 @@ export async function fetchAllComments(exchange_code: string) {
 }
 
 export async function fetchFeaturedComments(exchange_code: string) {
-    const url = new URL('http://localhost:8000/api/comments/featured/all')
+    const url = new URL('http://api.ayberkenis.com.tr/api/comments/featured/all')
     url.searchParams.append('exchange_code', exchange_code)
 
     const response = await fetch(url.toString(), {

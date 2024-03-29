@@ -13,7 +13,7 @@ export async function loginNewUser(response: { token: string, user: string }) {
 
 export async function loginUser(email: string, password: string) {
     try {
-        const response = await fetch('http://localhost:8000/api/auth/login', {
+        const response = await fetch('http://api.ayberkenis.com.tr/api/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -40,7 +40,7 @@ export async function loginUser(email: string, password: string) {
 
 export async function registerUser(username: string, email: string, password: string) {
     try {
-        const response = await fetch('http://localhost:8000/api/auth/register', {
+        const response = await fetch('http://api.ayberkenis.com.tr/api/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -66,7 +66,7 @@ export async function logoutUser() {
     const token = cookies().get('token')?.value
     if (!token) return
 
-    await fetch('http://localhost:8000/api/auth/logout', {
+    await fetch('http://api.ayberkenis.com.tr/api/auth/logout', {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${token}`
