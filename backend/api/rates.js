@@ -18,7 +18,7 @@ const getCurrencyFlag = (currencyCode) => {
         }
     ).catch(
         error => {
-            console.log(error);
+            
             return '';
         }
     );
@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
         'SELECT * FROM currency_data ORDER BY Last DESC',
         (error, results) => {
             if (error) {
-                console.log(error);
+                
                 res.status(500).json({status:'An error occurred'});
             } else {
                 res.json(results);
@@ -46,7 +46,7 @@ router.get('/:code', (req, res) => {
         [(req.params.code).toUpperCase()],
         (error, results) => {
             if (error) {
-                console.log(error);
+                
                 res.status(500).json({status:'An error occurred'});
             } else {
                 
@@ -71,7 +71,7 @@ router.get('/banks/all', (req, res) => {
         'SELECT b.*, br.exchange_code, br.buy_rate, br.sell_rate, br.spread_rate, br.updated_at FROM banks b LEFT JOIN bank_rates br ON b.id = br.bank_id ORDER BY b.name ASC',
         (error, results) => {
             if (error) {
-                console.log(error);
+                
                 res.status(500).json({status:'An error occurred'});
             } else {
                 // Group the results by bank to include all rates for each bank

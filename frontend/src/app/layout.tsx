@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { inter } from "./fonts";
 import "@/assets/css/main.css";
 import Header from "./components/header";
+import CommentProvider from "./context/commentContext";
 
 export const metadata: Metadata = {
   title: "Paratic Piyasalar: Canlı Piyasa Verileri ve Grafik Ekranı",
@@ -30,9 +31,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        {children}
-
+        <CommentProvider>
+          <Header />
+          {children}
+        </CommentProvider>
       </body>
     </html>
   );

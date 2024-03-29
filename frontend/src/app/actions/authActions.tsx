@@ -5,7 +5,7 @@ import { cookies } from 'next/headers';
 
 export async function loginNewUser(response: { token: string, user: string }) {
 
-    console.log('response login new user', response);
+
     cookies().set('token', response.token, { maxAge: 30 * 24 * 60 * 60, httpOnly: true })
     cookies().set('user', JSON.stringify(response.user), { maxAge: 30 * 24 * 60 * 60, httpOnly: true })
     return { token: response.token, user: response.user }

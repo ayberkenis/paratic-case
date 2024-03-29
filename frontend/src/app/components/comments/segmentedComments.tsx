@@ -1,19 +1,22 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { AllComments, Comment, FeaturedComments } from "./commentsBody";
+import { AllComments, FeaturedComments } from "./commentsBody";
 import { fetchAllComments, fetchFeaturedComments } from "@/app/actions/commentActions";
+import { useComment } from "@/app/context/commentContext";
+
 
 
 export default function SegmentedComments({ exchange_code }: { exchange_code: string }) {
     const [segment, setSegment] = useState<"featured" | "all">('featured');
 
-    const [featuredComments, setFeaturedComments] = useState<Comment[]>([])
-    const [comments, setComments] = useState<Comment[]>([])
+    const commentsCtx = useComment()
+    const comments = commentsCtx.comments;
+    const featuredComments = commentsCtx.featuredComments;
 
     useEffect(() => {
-        fetchFeaturedComments(exchange_code).then((data) => setFeaturedComments(data))
-        fetchAllComments(exchange_code).then((data) => setComments(data))
+        fetchFeaturedComments(exchange_code).then((data) => commentsCtx.setFeaturedComments(data))
+        fetchAllComments(exchange_code).then((data) => commentsCtx.setComments(data))
 
     }, [])
 

@@ -1,13 +1,7 @@
 // 'use server';
 import SingleComment from "./singleComment";
+import type Comment from "@/types/comment";
 
-export interface Comment {
-    id: string;
-    author_username: string;
-    author_avatar: string;
-    content: string;
-    commented_at: string;
-}
 
 export function AllComments({ comments }: { comments: Comment[] }) {
     return (

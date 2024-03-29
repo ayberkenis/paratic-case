@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
         'SELECT * FROM currency_data ORDER BY Last DESC',
         (error, results) => {
             if (error) {
-                console.log(error);
+                
                 res.status(500).json({status:'An error occurred'});
             } else {
                 res.json(results);

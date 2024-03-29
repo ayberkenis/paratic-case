@@ -5,18 +5,21 @@ import attachmentIcon from "@/assets/img/attachmentIcon.svg"
 import { useState } from "react"
 import { ErrorPopup } from "@/app/commons/errors"
 import { addComment } from "@/app/actions/commentActions"
+import { useComment } from "@/app/context/commentContext"
 
 
 
 export default function AddComment({ exchange_code }: { exchange_code: string }) {
     const [content, setContent] = useState('')
     const [error, setError] = useState('')
+    const commentContext = useComment()
 
     async function handleEnter(e: React.KeyboardEvent<HTMLInputElement>) {
         if (e.key === 'Enter') {
             const response = await addComment(exchange_code, content)
             if (response.status === 'success') {
                 setContent('')
+                await commentContext.fetchAllComments(exchange_code)
             } else {
                 setError('Yorum yapabilmek için giriş yapmanız gerekmektedir.')
             }
