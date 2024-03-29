@@ -34,7 +34,8 @@
 }
 
 .nav {
-    @apply w-full flex items-center justify-center gap-x-[50px] text-nowrap;
+    gap: clamp(15px, 2.5vw, 50px);
+    @apply w-full flex items-center justify-center text-nowrap;
 }
 
 .navbar-item {
