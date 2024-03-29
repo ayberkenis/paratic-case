@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
         (error, results) => {
             if (error) {
                 console.log(error);
-                res.status(500).send('An error occurred');
+                res.status(500).json({status:'An error occurred'});
             } else {
                 res.json(results);
             }

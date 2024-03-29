@@ -6,7 +6,8 @@ import { getCookie, setCookie } from 'cookies-next';
 import type { User } from '@/types/user';
 import Dropdown from './dropdown';
 
-async function LoginUser(email: string, password: string) {
+
+async function loginUser(email: string, password: string) {
     try {
         const response = await fetch('http://localhost:8000/api/auth/login', {
             method: 'POST',
@@ -32,7 +33,7 @@ async function LoginUser(email: string, password: string) {
 
 }
 
-async function RegisterUser(username: string, email: string, password: string) {
+async function registerUser(username: string, email: string, password: string) {
     await fetch('http://localhost:8000/api/auth/register', {
         method: 'POST',
         headers: {
@@ -42,7 +43,7 @@ async function RegisterUser(username: string, email: string, password: string) {
     })
 }
 
-async function LogoutUser() {
+async function logoutUser() {
     const token = getCookie('token')
     if (!token) return
 
@@ -63,7 +64,7 @@ function LoggedInUser(user: User) {
             <div className="auth order-4 relative">
                 <span className="auth-button logged-in">{user.username}</span>
                 {
-                    showDropdown && <Dropdown />
+                    showDropdown && <Dropdown callback={logoutUser} />
                 }
 
             </div>
@@ -90,8 +91,8 @@ export default function Authentication() {
             <span className="auth-button register" onClick={() => setShowRegister(true)}>Kayıt Ol</span>
 
             <div className="popups">
-                {showLogin && <LoginPopup show={showLogin} setShow={(x: boolean) => setShowLogin(x)} callback={(email, password) => LoginUser(email, password)} />}
-                {showRegister && <RegisterPopup show={showRegister} setShow={(x: boolean) => setShowRegister(x)} callback={(username, email, password) => RegisterUser(username, email, password)} />}
+                {showLogin && <LoginPopup show={showLogin} setShow={(x: boolean) => setShowLogin(x)} callback={(email, password) => loginUser(email, password)} />}
+                {showRegister && <RegisterPopup show={showRegister} setShow={(x: boolean) => setShowRegister(x)} callback={(username, email, password) => registerUser(username, email, password)} />}
             </div>
         </div>
     )

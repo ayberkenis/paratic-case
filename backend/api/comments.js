@@ -1,23 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const connection = require('../db.js');
-const jwt = require('jsonwebtoken');
-const secret = require('dotenv').config().parsed.JWT_SECRET;
+const verifyToken = require('../utils/verify.js');
 
-function verifyToken(req, res, next) {
-    const _token = req.headers['authorization'];
-    const token = _token && _token.split(' ')[1];
-    if (!token) {
-        return res.status(403).send('No token provided');
-    }
-    jwt.verify(token, secret, (err, decoded) => {
-        if (err) {
-            return res.status(401).json({error: 'Failed to authenticate token'});
-        }
-        req.user = decoded;
-        next();
-    });
-}
 
 router.get('/featured/all',  (req, res) => {
     /*
@@ -30,7 +15,7 @@ router.get('/featured/all',  (req, res) => {
         (error, results) => {
             if (error) {
                 console.log(error);
-                res.status(500).send('An error occurred');
+                res.status(500).json({status:'An error occurred'});
             } else {
                 res.json(results);
             }
@@ -48,7 +33,7 @@ router.get('/all',  (req, res) => {
         (error, results) => {
             if (error) {
                 console.log(error);
-                res.status(500).send('An error occurred');
+                res.status(500).json({status:'An error occurred'});
             } else {
                 res.json(results);
             }
@@ -68,7 +53,7 @@ router.post('/add', verifyToken, (req, res) => {
         (error, results) => {
             if (error) {
                 console.log(error);
-                res.status(500).send('An error occurred');
+                res.status(500).json({status:'An error occurred'});
             } else {
                 res.status(200).json({status:'Comment added'});
             }

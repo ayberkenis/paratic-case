@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const { encrypt, decrypt } = require('../utils/encrypt.js');
 const secret = require('dotenv').config().parsed.JWT_SECRET;
 const connection = require('../db.js');
+const verifyToken = require('../utils/verify.js');
 
 router.post('/login', (req, res) => {
     connection.query(
@@ -47,5 +48,13 @@ router.post('/register', (req, res) => {
         }
     );
 });
+
+
+router.post('/logout', verifyToken, (req, res) => {
+    res.clearCookie('jwt');
+    res.clearCookie('user');
+    res.json({status: 'Logged out'});
+}
+);
 
 module.exports = router;

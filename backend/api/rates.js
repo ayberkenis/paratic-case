@@ -31,7 +31,7 @@ router.get('/', (req, res) => {
         (error, results) => {
             if (error) {
                 console.log(error);
-                res.status(500).send('An error occurred');
+                res.status(500).json({status:'An error occurred'});
             } else {
                 res.json(results);
             }
@@ -47,7 +47,7 @@ router.get('/:code', (req, res) => {
         (error, results) => {
             if (error) {
                 console.log(error);
-                res.status(500).send('An error occurred');
+                res.status(500).json({status:'An error occurred'});
             } else {
                 
                 res.json(results);
@@ -72,7 +72,7 @@ router.get('/banks/all', (req, res) => {
         (error, results) => {
             if (error) {
                 console.log(error);
-                res.status(500).send('An error occurred');
+                res.status(500).json({status:'An error occurred'});
             } else {
                 // Group the results by bank to include all rates for each bank
                 res.json(results);
