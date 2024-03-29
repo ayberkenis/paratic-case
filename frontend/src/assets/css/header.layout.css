@@ -128,7 +128,7 @@ Auth Dropdown
 }
 
 .mobile {
-    @apply lg:hidden xl:hidden flex flex-col items-center justify-center w-full fixed z-[5000000] h-dvh overflow-y-hidden overflow-x-hidden bg-[#2A2E39] top-0 left-0
+    @apply flex-col items-center justify-center w-full fixed z-[5000000] h-dvh overflow-y-hidden overflow-x-hidden bg-[#2A2E39] top-0 left-0
 }
 
 .mobile-menu {
@@ -136,7 +136,7 @@ Auth Dropdown
 }
 
 .hamburger-menu-icon {
-    @apply lg:hidden xl:hidden hover:bg-[#2a2e39] hover:text-[#fbb041]
+    @apply lg:hidden xl:hidden hover:bg-[#2a2e39] hover:text-[#fbb041] mx-auto mt-8
 }
 
 .nav-mobile {
