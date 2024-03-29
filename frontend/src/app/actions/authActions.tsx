@@ -3,6 +3,14 @@
 
 import { cookies } from 'next/headers';
 
+export async function loginNewUser(response: { token: string, user: string }) {
+
+    console.log('response login new user', response);
+    cookies().set('token', response.token, { maxAge: 30 * 24 * 60 * 60, httpOnly: true })
+    cookies().set('user', JSON.stringify(response.user), { maxAge: 30 * 24 * 60 * 60, httpOnly: true })
+    return { token: response.token, user: response.user }
+}
+
 export async function loginUser(email: string, password: string) {
     try {
         const response = await fetch('http://localhost:8000/api/auth/login', {
@@ -14,9 +22,11 @@ export async function loginUser(email: string, password: string) {
         })
         if (response.ok) {
             const data = await response.json()
-            const expires = new Date(Date.now() + 1000 * 60 * 60 * 24 * 30) // 30 days from now
+            console.log(data)
             cookies().set('token', data.token, { maxAge: 30 * 24 * 60 * 60, httpOnly: true })
             cookies().set('user', JSON.stringify(data.user), { maxAge: 30 * 24 * 60 * 60, httpOnly: true })
+
+            return { token: data.token, user: data.user }
         } else {
             console.log('Login failed')
         }
@@ -29,13 +39,27 @@ export async function loginUser(email: string, password: string) {
 }
 
 export async function registerUser(username: string, email: string, password: string) {
-    await fetch('http://localhost:8000/api/auth/register', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email, password })
-    })
+    try {
+        const response = await fetch('http://localhost:8000/api/auth/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, email, password })
+        })
+        if (response.ok) {
+            const data = await response.json()
+            console.log(data)
+            return { token: data.token, user: data.user }
+        } else if (response.status === 409) {
+            return 'User already exists'
+        }
+
+    } catch (error) {
+        console.log(error)
+        return 'An error occurred. Please try again later.'
+    }
+
 }
 
 export async function logoutUser() {

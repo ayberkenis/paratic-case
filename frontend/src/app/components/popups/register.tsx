@@ -1,15 +1,22 @@
 import '@/assets/css/popup.layout.css';
 import { useState } from "react";
+import { loginNewUser } from "@/app/actions/authActions";
 
-export default function RegisterPopup({ show, setShow, callback }: { show: boolean, setShow: (x: boolean) => void, callback: (...data: any) => void }) {
-
+export default function RegisterPopup({ show, setShow, callback }: { show: boolean, setShow: (x: boolean) => void, callback: (...data: any) => any }) {
+    const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [repeatPassword, setRepeatPassword] = useState('')
+    const [error, setError] = useState('')
 
-    function handleCallback() {
-        setShow(false)
-        callback(email, password, repeatPassword)
+
+    async function handleCallback() {
+
+        callback(username, email, password).then((res: any) =>
+            res && res.token ? loginNewUser(res).then((r) => setShow(false)) : setError(res)
+        )
+
+
     }
 
     return (
@@ -20,6 +27,9 @@ export default function RegisterPopup({ show, setShow, callback }: { show: boole
                 </div>
                 <div className="popup-body">
                     <div className="popup-input-wrapper">
+                        <input className="popup-input" placeholder="Kullanıcı Adı" type='text' value={username} onChange={(e) => setUsername(e.target.value)} />
+                    </div>
+                    <div className="popup-input-wrapper">
                         <input className="popup-input" placeholder="E-posta" type='text' value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div className="popup-input-wrapper">
@@ -29,7 +39,10 @@ export default function RegisterPopup({ show, setShow, callback }: { show: boole
                         <input className="popup-input" placeholder="Şifre Tekrar" type='password' value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)} />
                     </div>
                     {
-                        password !== repeatPassword && <span className='error-message'>Şifreler uyuşmuyor</span>
+                        repeatPassword.length > 1 && password !== repeatPassword && <span className='error-message'>Şifreler uyuşmuyor</span>
+                    }
+                    {
+                        error && <span className='error cursor-default text-red-500'>{error}</span>
                     }
 
                     <div className="popup-button-wrapper">

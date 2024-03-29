@@ -9,6 +9,15 @@ import { loginUser, registerUser } from "@/app/actions/authActions"
 export default function LoginRegisterButtons() {
     const [showLogin, setShowLogin] = useState(false)
     const [showRegister, setShowRegister] = useState(false)
+
+    function handleESCkey(e: KeyboardEvent) {
+        if (e.key === 'Escape') {
+            setShowLogin(false)
+            setShowRegister(false)
+        }
+    }
+
+
     return (
         <div className="auth order-4">
             <span className="auth-button login" onClick={() => setShowLogin(true)}>Giriş Yap</span>

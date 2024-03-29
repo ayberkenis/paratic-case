@@ -31,23 +31,42 @@ router.post('/login', (req, res) => {
 
 router.post('/register', (req, res) => {
     connection.query(
-        'INSERT INTO users (email, password) VALUES (?, ?)',
-        [req.body.email, encrypt(req.body.password)],
+        'INSERT INTO users (username, email, password) VALUES (?, ?, ?)',
+        [req.body.username, req.body.email, encrypt(req.body.password)],
         (error, results) => {
             if (error) {
-                res.status(500).send('There is a user with the same email.');
+                res.status(409).json({ status: 'There is a user with the same email.' });
             } else {
-                const token = jwt.sign(
-                    { email: req.body.email },
-                    secret,
-                    { expiresIn: '2w' }
+                const userId = results.insertId;
+                connection.query(
+                    'SELECT * FROM users WHERE id = ?',
+                    [userId],
+                    (error, userResults) => {
+                        if (error) {
+                            // Handle the error when fetching the user
+                            res.status(500).json({ status: 'Internal Server Error' });
+                        } else {
+                            const user = userResults[0];
+                            const token = jwt.sign(
+                                { email: req.body.email },
+                                secret,
+                                { expiresIn: '2w' }
+                            );
+                            res.cookie('jwt', token, { httpOnly: true, maxAge: 14 * 24 * 60 * 60 * 1000 });
+                            res.json({ token, user: {
+                                email: user.email,
+                                username: user.username,
+                                id: user.id,
+                                avatar: user.avatar
+                            } });
+                        }
+                    }
                 );
-                res.cookie('jwt', token, { httpOnly: true, maxAge: 14 * 24 * 60 * 60 * 1000 }); // Setting the JWT token as a cookie
-                res.send({ token });
             }
         }
     );
 });
+
 
 
 router.post('/logout', verifyToken, (req, res) => {
