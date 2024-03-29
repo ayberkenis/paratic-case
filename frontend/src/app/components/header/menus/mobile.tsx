@@ -25,7 +25,7 @@ export default function MobileMenu({ user }: { user: string }) {
                         <span className="navbar-mobile-item">Kripto</span>
                         <span className="navbar-mobile-item">Menü</span>
                         <div className='footer mx-auto w-1/2'>
-                            <Authentication />
+                            <Authentication user={user} />
                         </div>
                     </nav>
 
