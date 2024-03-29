@@ -16,7 +16,10 @@ async function Bank({ name, image, buy_rate, sell_rate, spread_rate }: BankProps
     return (
         <div className='bank flex flex-row justify-between'>
             <div className='bank-info flex flex-row items-center gap-8 w-1/3'>
-                <Image src={`http://localhost:8000/api/assets/${image}`} alt='Banka' width={24} height={24} className='bank-logo' quality={100} />
+                <Image src={`http://localhost:8000/api/assets/${image}`} alt='Banka' width={0} height={0} className='bank-logo' style={{
+                    width: 'auto',
+                    height: '24px'
+                }} quality={100} />
                 <span className='bank-name'>{name}</span>
 
             </div>

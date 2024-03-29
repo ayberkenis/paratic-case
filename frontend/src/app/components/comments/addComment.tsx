@@ -36,9 +36,7 @@ export default function AddComment({ exchange_code }: { exchange_code: string })
 
     async function handleEnter(e: React.KeyboardEvent<HTMLInputElement>) {
         if (e.key === 'Enter') {
-            console.log(content)
             const response = await addComment(exchange_code, content)
-            console.log(response)
             if (response.status === 'success') {
                 setContent('')
             } else {

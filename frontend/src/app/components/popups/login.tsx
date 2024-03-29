@@ -1,3 +1,7 @@
+'use client';
+import '@/assets/css/popup.layout.css';
+import { useState } from "react";
+
 export default function LoginPopup() {
     return (
         <div className="login-popup">

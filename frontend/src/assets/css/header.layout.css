@@ -34,8 +34,8 @@
 }
 
 .nav {
-    gap: clamp(15px, 2.5vw, 50px);
-    @apply w-full flex items-center justify-center text-nowrap;
+    gap: clamp(5px, 2.5vw, 50px);
+    @apply w-full flex items-center justify-center text-nowrap px-8;
 }
 
 .navbar-item {
@@ -76,4 +76,18 @@
 
 .hamburger-menu-icon {
     @apply w-[24px] h-[24px] cursor-pointer bg-[#fbb041] flex items-center justify-center py-4 px-4 rounded-md;
+}
+
+.navbar-mobile-item {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 16.34px;
+    color: #e5e5e5;
+    cursor: pointer;
+    @apply hover:text-[#fbb041]
+}
+
+.nav-mobile {
+    @apply lg:hidden order-4 flex flex-col gap-y-8 items-center text-center text-[#e5e5e5] fixed left-0 z-50 top-0 min-h-screen h-screen bg-[#2A2E39] w-screen overflow-hidden
 }

@@ -1,8 +1,8 @@
+
 import type { Metadata } from "next";
 import { inter } from "./fonts";
 import "@/assets/css/main.css";
 import Header from "./components/header";
-
 
 export const metadata: Metadata = {
   title: "Paratic Piyasalar: Canlı Piyasa Verileri ve Grafik Ekranı",
@@ -24,6 +24,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
   return (
     <html lang="en">
       <body className={inter.className}>

@@ -29,6 +29,9 @@ export default async function Home() {
   const DEFAULT_CODE = 'USDTRY';
   const data = await fetchHomePageData(DEFAULT_CODE);
 
+
+
+
   return (
     <main className="flex min-h-screen flex-col px-2 py-4">
       <div className="flex-col grid grid-cols-2 lg:grid-rows-2 xl:flex xl:flex-row gap-4">

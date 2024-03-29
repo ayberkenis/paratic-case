@@ -20,3 +20,12 @@ span.error {
     @apply text-red-500 animate-pulse;
 
 }
+
+/* if nav-mobile in body make main hidden */
+body.nav-mobile {
+    main {
+        display: none;
+
+    }
+
+}

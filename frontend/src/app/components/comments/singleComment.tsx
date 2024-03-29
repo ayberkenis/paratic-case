@@ -10,7 +10,6 @@ interface SingleCommentProps {
 }
 
 export default function SingleComment({ author_avatar, author_username, content, commented_at }: SingleCommentProps) {
-    console.log(author_username)
     return (
         <div className='comment'>
             <div className="comment-meta">

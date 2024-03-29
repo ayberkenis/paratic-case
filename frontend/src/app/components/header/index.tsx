@@ -3,7 +3,7 @@
 import Logo from "./logo";
 import '@/assets/css/header.layout.css';
 import Search from "./search";
-import {MobileNavbar, Navbar} from "./nav";
+import { MobileNavbar, Navbar } from "./nav";
 import Authentication from "./auth";
 import { useState } from "react";
 
@@ -11,10 +11,12 @@ export default function Header() {
     const [showMobileMenu, setShowMobileMenu] = useState(false)
 
 
-
+    if (showMobileMenu) {
+        return <MobileNavbar closeMenu={setShowMobileMenu} />
+    }
     return (
         <>
-        <div className="flex items-center header w-full relative">
+            <div className="flex items-center header w-full relative">
                 <Logo />
                 <div className="search-container  lg:ml-8 hidden lg:flex items-center justify-center order-2">
                     <Search />
@@ -27,8 +29,8 @@ export default function Header() {
                     <span onClick={() => setShowMobileMenu(true)} className="hamburger-menu-icon lg:hidden">☰</span>
                 </div>
 
-        </div>
-        {showMobileMenu && <MobileNavbar closeMenu={setShowMobileMenu}/>}
+            </div>
+
         </>
     )
 }
