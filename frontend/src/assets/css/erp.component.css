@@ -65,7 +65,7 @@
 }
 
 .exchange-rate-live {
-    @apply flex flex-row justify-between items-center w-full px-4 sm:flex-col sm:gap-y-2
+    @apply flex flex-row justify-between items-center w-full px-4 md:flex-col md:gap-y-2 sm:flex-col sm:gap-y-2
 }
 
 .exchange-rate-live .change {
